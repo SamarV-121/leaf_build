@@ -61,6 +61,7 @@ function target-files() {
 	telegram editMessageText "$TELEGRAM_MESSAGE Generating target files"
 	source build/envsetup.sh
 	fetch_device "$JENKINS_DEVICE"
+	./vendor/leaf/tools/repopick.py -P hardware/samsung -g "https://review.lineageos.org" -f 340739
 	if [ "$JENKINS_LUNCH" ]; then
 		lunch "${JENKINS_LUNCH}_$JENKINS_DEVICE-$JENKINS_BUILDTYPE"
 	else
